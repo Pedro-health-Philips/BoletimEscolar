@@ -7,10 +7,11 @@ jobs:
   DigaOla:
     runs-on: ubuntu-latest
     steps:
-      - name: Print greeting
-        run: echo "Ola"
+      - name: Checkout
+      - uses: actions/checkout@v4
+      - name: Diga Olá
+      - uses: ./.github/actions/Diga-ola-action
   Build:
-    needs: DigaOla
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,6 +19,7 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
