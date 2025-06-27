@@ -1,0 +1,9 @@
+name: BuildGradle
+description: "Action para executar build do projeto com Gradle"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Executar build
+      run: ./gradlew build
+      shell: bash
