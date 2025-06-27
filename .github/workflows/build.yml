@@ -1,21 +1,28 @@
 name: Build
+
 on:
   push:
     branches:
       - main
+
 jobs:
   DigaOla:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
+
       - name: Diga Olá
-      - uses: ./.github/actions/Diga-ola-action
+        uses: ./.github/actions/Diga-ola-action
+
   Build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
         with:
           java-version: '21'
           distribution: 'temurin'
@@ -26,4 +33,5 @@ jobs:
       - name: Set Gradle Permission
         run: chmod +x ./gradlew
 
-      - run: ./gradlew build
+      - name: Build com Gradle
+        run: ./gradlew build
