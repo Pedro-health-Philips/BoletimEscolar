@@ -1,0 +1,6 @@
+name: DigaOla
+description: "Action par printar ola"
+
+runs:
+  - name: Diga Olá
+    run: echo Olá
