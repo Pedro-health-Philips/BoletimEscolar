@@ -1,33 +1,27 @@
 name: Build
-
 on:
   push:
     branches:
       - main
-
 jobs:
   DigaOla:
     runs-on: ubuntu-latest
     steps:
       - name: Print greeting
         run: echo "Ola"
-
   Build:
     needs: DigaOla
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-java@v2
         with:
           java-version: '21'
           distribution: 'temurin'
-          # Removemos o cache para evitar erros 503 temporários
-          # cache: 'gradle'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
-      - name: Give execute permission to gradlew
-        run: chmod +x gradlew
+      - name: Set Gradle Permission
+        run: chmod +x ./gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build --no-daemon
-
+      - run: ./gradlew build
