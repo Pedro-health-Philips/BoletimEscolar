@@ -31,7 +31,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Permissão gradlew
-        uses: ./.github/actions/Permissao-gradlew-action
+        uses: ./.github/actions/Permissao-gradlew
 
       - name: Build com Gradle
         uses: ./.github/actions/Build-gradle-action
