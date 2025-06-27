@@ -34,4 +34,4 @@ jobs:
         uses: ./.github/actions/Permissao-gradlew
 
       - name: Build com Gradle
-        uses: ./.github/actions/Build-gradle-action
+        uses: ./.github/actions/Build-gradlew-action
