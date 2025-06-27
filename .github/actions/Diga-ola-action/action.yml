@@ -1,6 +1,7 @@
 name: DigaOla
-description: "Action par printar ola"
-
+description: "Action para printar Olá"
 runs:
-  - name: Diga Olá
-    run: echo Olá
+  using: "composite"
+  steps:
+    - name: Diga Olá
+      run: echo Olá
